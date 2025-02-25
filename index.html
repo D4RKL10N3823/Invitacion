@@ -32,9 +32,10 @@
             background-color: black;
         }
         .invitation-section {
-            background-image: url('./images/fondo-1.png');
-            background-size: cover; 
-            background-position: center;
+            background-image: url('./images/Invitacion.png');
+            background-position-x: center;
+            background-position-y: 19%;
+            background-repeat: no-repeat;
         }
         .custombeige {
             background-color: #abdebe;
@@ -191,6 +192,13 @@
         }
         @media (max-width: 980px) {
 
+            .invitation-section {
+                background-image: url('./images/Invitacion.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
             .mesa {
                 display: flex;
                 flex-direction: column;
@@ -320,12 +328,7 @@
 
 <body class="bg-gray-100">
 
-    <div class="invitation-section min-h-screen flex items-center justify-center">
-        <div class="p-4 md:p-8 flex items-center justify-center h-screen w-screen" style="background-color: rgba(0, 0, 0, 0.551);">
-            <h1 class="cinzel text-4xl md:text-8xl mb-2 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-                ¡Bebé en Camino!
-            </h1>
-        </div>
+    <div class="invitation-section min-h-screen">
     </div>
 
     <div class="wedding-party-section bg-gray-900 text-white h-screen flex items-center justify-center">
@@ -364,7 +367,7 @@
     </div>
         <script>
             function updateCountdown() {
-                const weddingDate = new Date('2025-03-01').getTime();
+                const weddingDate = new Date('2025-03-01T16:00:00').getTime();
                 const now = new Date().getTime();
                 const distance = weddingDate - now;
 
