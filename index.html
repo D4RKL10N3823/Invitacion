@@ -367,50 +367,36 @@
             </div>
         </div>
     </div>
-        <script>
-            function updateCountdown() {
-                const weddingDate = new Date('2025-03-01T16:00:00').getTime();
-                const now = new Date().getTime();
-                const distance = weddingDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = days;
-                document.getElementById('hours').innerText = hours;
-                document.getElementById('minutes').innerText = minutes;
-                document.getElementById('seconds').innerText = seconds;
-
-                if (days === 1) {
-                    document.getElementById('D').innerText = 'DÍA';
-                } else {
-                    document.getElementById('D').innerText = 'DÍAS';
-                }
-
-                if (hours === 1) {
-                    document.getElementById('H').innerText = 'HORA';
-                } else {
-                    document.getElementById('H').innerText = 'HORAS';
-                }
-
-                if (minutes === 1) {
-                    document.getElementById('M').innerText = 'MINUTO';
-                } else {
-                    document.getElementById('M').innerText = 'MINUTOS';
-                }
-
-                if (seconds === 1) {
-                    document.getElementById('S').innerText = 'SEGUNDO';
-                } else {
-                    document.getElementById('S').innerText = 'SEGUNDOS';
-                }
-                
+    <script>
+        function updateCountdown() {
+            const weddingDate = new Date('2025-03-01T16:00:00').getTime();
+            const now = new Date().getTime();
+            let distance = weddingDate - now;
+    
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            // Si el tiempo es menor a 0, poner 0 en todos los valores
+            if (distance < 0) {
+                days = hours = minutes = seconds = 0;
             }
-
-            setInterval(updateCountdown, 1000);
-        </script>
+    
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+    
+            document.getElementById('D').innerText = days === 1 ? 'DÍA' : 'DÍAS';
+            document.getElementById('H').innerText = hours === 1 ? 'HORA' : 'HORAS';
+            document.getElementById('M').innerText = minutes === 1 ? 'MINUTO' : 'MINUTOS';
+            document.getElementById('S').innerText = seconds === 1 ? 'SEGUNDO' : 'SEGUNDOS';
+        }
+    
+        setInterval(updateCountdown, 1000);
+    </script>
+    
 
 <div id="family" class="flex items-center justify-center h-50vh">
     <div class="text-center bg-transparent p-4 rounded-lg mb-10">
